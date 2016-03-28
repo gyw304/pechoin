@@ -1,0 +1,140 @@
+<!doctype html>
+<html id="html">
+<head>
+	<meta charset="GBK">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+	<title>三生有幸，匠心为你</title>
+    <style>
+        body { margin: 0; background-color: #fff}
+    </style>
+
+
+    <script src="touch.min.js"></script>
+    <script src="phaser.min.js"></script>
+    <script src="Boot.js?1"></script>
+    <script src="Preloader.js?2223222"></script>
+    <script src="scene1.js?3"></script>
+    <script src="scene2.js?2"></script>
+    <script src="scene3.js?112220"></script>
+    <script src="yaoyao.js?6"></script>
+    <script src="result.js?6"></script>
+
+    <style>
+        #baoming{
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            background: rgba(0,0,0,.7);
+            display: none;
+        }
+        #baoming .warp{
+            background-size: 16rem;
+            background-image: url('assets/baoming.png');
+            position: absolute;
+            left:50%;
+            width:12.55rem;
+            height:14.9rem;
+            top:3rem;
+            margin-left:-6.275rem;
+        }
+        #baoming .warp .from{
+            position: relative;
+        }
+        #baoming .warp .frm input{
+            border: 0;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            color:#fff;
+            height:1.3rem;
+            font-size: .7rem;
+        }
+        #baoming .warp .frm{
+            height:1.3rem;
+            position: absolute;
+        }
+        #baoming .warp .frm.name{
+            left:3rem;
+            top:3.8rem;
+        }
+        #baoming .warp .frm.tel{
+            left: 4.3rem;
+            top: 7.6rem;
+        }
+        .sub-btn{
+            width:100%;
+            position: absolute;
+            text-align: center;
+            bottom:2rem;
+        }
+        .sub-btn input{
+            width:5.75rem;
+            height:1.5rem;
+            background-size: 16rem;
+            background-image: url('assets/baoming.png');
+            background-position: 0 -15.65rem;
+            border: none;
+            background-color:transparent ;
+
+        }
+        #close{
+            width:1.5rem;
+            height:1.5rem;
+            position: absolute;
+            right:0;
+            top:0;
+            text-indent: -999px;
+        }
+    </style>
+
+</head>
+<body style="background-color: #fff" id="body">
+<div style="display: none"><img src="assets/share_ico.jpg" width="300" height="300" alt=""/></div>
+
+<div id="baoming">
+    <div class="warp">
+        <a href="javascript:void(0)" id="close">关闭</a>
+        <div class="from">
+            <div class="frm name"><input type="text" value="姓名"/></div>
+            <div class="frm tel"><input type="text" style="width:7.2rem"/></div>
+        </div>
+        <div class="sub-btn"><input type="submit" value=""/></div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        var game = new Phaser.Game(640, 1010, Phaser.CANVAS, 'game');
+        game.state.add('Boot', MyGame.Boot);
+        game.state.add('Preloader', MyGame.Preloader);
+        game.state.add('scene1', MyGame.scene1);
+        game.state.add('scene2', MyGame.scene2);
+        game.state.add('scene3', MyGame.scene3);
+        game.state.add('yaoyao', MyGame.yaoyao);
+        game.state.add('result', MyGame.result);
+        game.state.start('Boot');
+    })();
+
+
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+    document.getElementById('close').addEventListener("touchend",function(){
+        document.getElementById('baoming').style.display = 'none';
+    }, false);
+
+</script>
+<script src="inpMusic.js?3"></script>
+</body>
+</html>
